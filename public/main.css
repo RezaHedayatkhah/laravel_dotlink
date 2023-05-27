@@ -1,0 +1,56 @@
+body{
+    background-color: #101010;
+}
+
+.card-color{
+    background-color: #1d1d21;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #c2c2c2!important;
+    opacity: 1; /* Firefox */
+    text-align: right;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #c2c2c2!important;
+    text-align: right;
+
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #c2c2c2!important;
+    text-align: right;
+
+  }
+
+@media (max-width: 544px) {
+    .f-size {
+        font-size: 0.8rem!important;
+    }
+  }
+
+@media (min-width: 544px) {
+    .f-size {
+        font-size: 0.8rem!important;
+    }
+  }
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) {
+    .f-size {
+        font-size: 0.9rem!important;
+    }
+    .big-size{
+        width: 80%!important;
+    }
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .f-size {
+        font-size: 1rem!important;
+    }
+  }
+
+
