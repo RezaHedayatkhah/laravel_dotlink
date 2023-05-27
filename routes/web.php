@@ -32,3 +32,4 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::get('/{url_code}', [ClickController::class, 'click'])->name('click');
+Route::post('/{url_code}', [ClickController::class, 'adClick'])->name('adclick');

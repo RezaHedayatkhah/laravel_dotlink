@@ -70,9 +70,10 @@
                 </div>
 
                 <!-- button -->
-                <div id="onclk">
-                    <a onclick="onclk(event); this.onclick=null;" id="alink" class="btn btn-primary my-5 p-3" >برای ادامه اینجا کلیک کنید</a>
-                </div>
+                    <form action="{{ route('adclick', $url->url_code) }}" method="post">
+                        @csrf
+                        <button type="button" onclick="onclk(event); this.onclick=null;" id="alink" class="btn btn-primary my-5 p-3" >برای ادامه اینجا کلیک کنید</button>
+                    </form>
 
                 <!-- bottom banner -->
                 <div>
@@ -107,7 +108,7 @@
              if (timeleft <= 0) {
                  clearInterval(downloadTimer);
                  document.getElementById("alink").innerHTML = "برای ادامه اینجا کلیک کنید"
-                 document.getElementById("alink").href = "{{ $url->long_url }}"
+                 document.getElementById("alink").type = "submit"
              }
          }, 1000);
      }
