@@ -19,10 +19,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
-        'wallet_balance'
+        'wallet_balance',
+        'id_code',
+        'phone_number',
+        'card_number',
     ];
 
     /**
@@ -48,5 +52,10 @@ class User extends Authenticatable
     public function urls(): HasMany
     {
         return $this->hasMany(Url::class);
+    }
+
+    public function withdraw_receipts(): HasMany
+    {
+        return $this->hasMany(WithdrawReceipt::class);
     }
 }

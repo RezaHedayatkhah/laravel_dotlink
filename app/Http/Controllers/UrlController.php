@@ -48,7 +48,7 @@ class UrlController extends Controller
         $url->url_code = bin2hex(random_bytes(6));
         $url->save();
 
-        return redirect()->route('urls.index')->with('success', 'لینک با موفقیت ساخته شد');
+        return back()->with('status', 'لینک با موفقیت ساخته شد');
     }
 
     /**
@@ -90,7 +90,7 @@ class UrlController extends Controller
 
         $url->update($validatedData);
 
-        return redirect()->route('urls.index')->with('success', 'لینک با موفقیت بروز رسانی شد');
+        return back()->with('status', 'لینک با موفقیت بروز رسانی شد');
     }
 
     /**
@@ -103,6 +103,6 @@ class UrlController extends Controller
         }
         $url->delete();
 
-        return redirect()->route('urls.index')->with('success', 'لینک با موفقیت حذف شد');
+        return redirect()->route('urls.index')->with('status', 'لینک با موفقیت حذف شد');
     }
 }

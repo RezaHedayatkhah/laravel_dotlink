@@ -3,10 +3,10 @@
 @section('content')
 <div class="container card-color shadow rounded text-white px-4 py-3">
     @if(session('status'))
-        <div class="alert alert-success mb-1 mt-1">
+        <div class="alert alert-info mb-1 mt-1">
             {{ session('status') }}
         </div>
-        @endif
+    @endif
     <form action="{{ route('urls.update', $url->id) }}" method="POST" id="myform">
         @csrf
         @method('PUT')

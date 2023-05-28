@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClickController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UrlController;
+use App\Http\Controllers\WithdrawReceiptController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::view('/settings', 'settings')->name('settings');
     Route::resource('/urls', UrlController::class);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/profile', [AuthController::class, 'show_profile'])->name('show_profile');
+    Route::put('/profile', [AuthController::class, 'edit_profile'])->name('edit_profile');
+    Route::get('/withdraw', [WithdrawReceiptController::class, 'index'])->name('withdrawView');
+    Route::post('/withdraw', [WithdrawReceiptController::class, 'withdraw'])->name('withdraw');
 });
 
 Route::get('/{url_code}', [ClickController::class, 'click'])->name('click');

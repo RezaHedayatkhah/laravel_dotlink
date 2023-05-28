@@ -4,10 +4,10 @@
 <div >
 
 
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success my-3">
-        <p>{{ $message }}</p>
-    </div>
+    @if(Session::has('status'))
+        <div class="alert alert-info" role="alert">
+            {{ Session::get('status') }}
+        </div>
     @endif
 
 

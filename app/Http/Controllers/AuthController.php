@@ -15,16 +15,15 @@ class AuthController extends Controller
 
     public function registerPost(Request $request){
         $request->validate([
-            'email' => 'required|unique:users,email',
-            'password' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|min:6'
         ]);
         $user = new User();
-        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
         $user->save();
-        return back()->with('success', 'اکانت با موفقیت ساخته شد');
+        return back()->with('status', 'اکانت با موفقیت ساخته شد');
     }
 
     public function login(){
@@ -40,11 +39,33 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)){
             return redirect()->route('dashboard')->with('success', 'ورود موفقیت آمیز بود');
         }
-        return back()->with('error', 'اطلاعات وارد شده اشتباه است');
+        return back()->with('status', 'اطلاعات وارد شده اشتباه است');
     }
 
     public function logout(){
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function show_profile(){
+        return view('profile');
+    }
+
+    public function edit_profile(Request $request){
+
+        $validatedData = $request->validate([
+            'first_name' => 'max:60|nullable',
+            'last_name' => 'max:60|nullable',
+            'email' => 'required|email|unique:users,email,' . Auth::user()->id,
+            'id_code' => 'nullable|integer|unique:users,id_code,' . Auth::user()->id,
+            'phone_number' => 'nullable|integer|unique:users,phone_number,' . Auth::user()->id,
+            'card_number' => 'nullable',
+        ]);
+
+        $user =Auth::user();
+
+        $user->update($validatedData);
+
+        return back()->with('status', 'پروفایل با موفقیت بروز رسانی شد');
     }
 }

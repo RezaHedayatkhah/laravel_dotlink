@@ -49,9 +49,7 @@
         })()
     </script>
     <!-- END NAJVA PUSH NOTIFICATION -->
-    <script>
-        (function(zp){var id=Math.floor(1e7*Math.random()+1),url=location.protocol+'//www.zarpop.ir/website/pp/null/6783/'+window.location.hostname+'/?'+id;zp.write('<div id="'+id+'"></div>');zp.write('<script type="text/javascript" src="'+url+'" async></scri'+'pt>')})(document);var zarpop_userMax=5;
-    </script>
+    <script type='text/javascript' src='//pl19540384.highrevenuegate.com/f0/8c/54/f08c54d332212195dfadf9e7595b9510.js'></script>
 
 </head>
 <body class="bg-light" >
