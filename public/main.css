@@ -29,7 +29,11 @@ body{
     }
 
   }
-
+@media (max-width: 767px) {
+    .hidden-mobile {
+        display: none;
+    }
+}
   /* Large devices (desktops, 992px and up) */
   @media (min-width: 992px) {
     .f-size {

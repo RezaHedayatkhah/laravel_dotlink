@@ -95,14 +95,14 @@
                     @endauth
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('loginView') }}">
+                            <a class="nav-link" href="{{ route('auth') }}">
                                 <i class="bi bi-box-arrow-in-left text-primary fs-4"></i>
                                 <span class="px-2 text-white">ورود</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('registerView') }}">
+                            <a class="nav-link" href="{{ route('auth') }}">
                                 <i class="bi bi-pencil-square text-primary fs-4"></i>
                                 <span class="px-2 text-white">ثبت نام</span>
                             </a>

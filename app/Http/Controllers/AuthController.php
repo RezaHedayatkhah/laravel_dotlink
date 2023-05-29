@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(){
-        return view('register');
-    }
-
     public function registerPost(Request $request){
         $request->validate([
             'email' => 'required|email|unique:users,email',
@@ -26,9 +22,6 @@ class AuthController extends Controller
         return back()->with('status', 'اکانت با موفقیت ساخته شد');
     }
 
-    public function login(){
-        return view('login');
-    }
 
     public function loginPost(Request $request){
         $credentials = [
@@ -44,7 +37,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('auth');
     }
 
     public function show_profile(){
