@@ -15,7 +15,7 @@ class UrlController extends Controller
      */
     public function index()
     {
-        $urls = Url::where('user_id', Auth::id())->orderBy('created_at', 'DESC')->paginate(10);
+        $urls = Url::where('user_id', Auth::id())->orderBy('created_at', 'DESC')->paginate(30);
 
         return view('index', compact('urls'));
     }
@@ -56,7 +56,7 @@ class UrlController extends Controller
      */
     public function show(Url $url)
     {
-        if ($url->user_id !== auth()->id()){
+        if ($url->user_id != auth()->id()){
             abort(403);
         }
         return view('show', compact('url'));
@@ -67,7 +67,7 @@ class UrlController extends Controller
      */
     public function edit(Url $url)
     {
-        if ($url->user_id !== auth()->id()){
+        if ($url->user_id != auth()->id()){
             abort(403);
         }
         return view('edit', compact('url'));
@@ -78,7 +78,7 @@ class UrlController extends Controller
      */
     public function update(Request $request, Url $url)
     {
-        if ($url->user_id !== auth()->id()){
+        if ($url->user_id != auth()->id()){
             abort(403);
         }
         $validatedData = $request->validate([
@@ -98,11 +98,11 @@ class UrlController extends Controller
      */
     public function destroy(Url $url)
     {
-        if ($url->user_id !== auth()->id()){
+        if ($url->user_id != auth()->id()){
             abort(403);
         }
         $url->delete();
 
-        return redirect()->route('urls.index')->with('status', 'لینک با موفقیت حذف شد');
+        return redirect()->back()->with('status', 'لینک با موفقیت حذف شد');
     }
 }

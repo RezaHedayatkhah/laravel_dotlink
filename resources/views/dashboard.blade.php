@@ -14,15 +14,14 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
-
-        const xValues = @json($views);
+        const xValues = [];
         const yValues = [];
+        const urls = @json($urls);
 
-        let titles = @json($titles);
-        titles.forEach(title => {
-            yValues.push(title.slice(0, 10));
-        });
-
+        urls.forEach(url =>{
+            xValues.push(url.views)
+            yValues.push(url.title)
+        })
         const myChart = new Chart("myChart", {
             type: "line",
             data: {
