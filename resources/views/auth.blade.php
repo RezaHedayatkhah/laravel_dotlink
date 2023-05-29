@@ -111,7 +111,7 @@
                 !روی دکمه زیر کلیک کنید و همین حالا وارد حساب دات لینک خود شوید
             </p>
             <button class="btn transparent" id="sign-in-btn">
-              ثبت نام
+              ورود
             </button>
           </div>
           <img src="{{ asset('images/register.svg') }}" class="image" alt="" />
