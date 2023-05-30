@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
     <title>پنل دات لینک</title>
+    @stack('styles')
 </head>
 <body>
 <div class="container">
@@ -21,52 +22,44 @@
                     <span class="title">دات لینک</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="{{ request()->routeIs('dashboard') ? 'hovered' : '' }}">
+                <a href="{{ route('dashboard') }}">
               <span class="icon"
               ><ion-icon name="home-outline"></ion-icon
                   ></span>
                     <span class="title">خانه</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-              <span class="icon"
-              ><ion-icon name="people-outline"></ion-icon
-                  ></span>
-                    <span class="title">Customers</span>
+            <li class="{{ request()->routeIs('urls.index') ? 'hovered' : '' }}">
+                <a href="{{ route('urls.index') }}">
+                    <span class="icon"><ion-icon name="link-outline"></ion-icon></span>
+                    <span class="title">لینک ها</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-              <span class="icon"
-              ><ion-icon name="chatbubble-outline"></ion-icon
-                  ></span>
-                    <span class="title">Message</span>
+            <li class="{{ request()->routeIs('urls.create') ? 'hovered' : '' }}">
+                <a href="{{ route('urls.create') }}">
+                    <span class="icon"><ion-icon name="add-outline"></ion-icon></span>
+                    <span class="title">لینک جدید</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-              <span class="icon"
-              ><ion-icon name="help-outline"></ion-icon
-                  ></span>
-                    <span class="title">Help</span>
+            <li class="{{ request()->routeIs('show_profile') ? 'hovered' : '' }}">
+                <a href="{{ route('show_profile') }}">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">پروفایل</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="{{ request()->routeIs('settings') ? 'hovered' : '' }}">
+                <a href="{{ route('settings') }}">
               <span class="icon"
               ><ion-icon name="settings-outline"></ion-icon
                   ></span>
                     <span class="title">تنظیمات</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-              <span class="icon"
-              ><ion-icon name="lock-closed-outline"></ion-icon
-                  ></span>
-                    <span class="title">Password</span>
+            <li class="{{ request()->routeIs('withdrawView') ? 'hovered' : '' }}">
+                <a href="{{ route('withdrawView') }}">
+                    <span class="icon"><ion-icon name="cash-outline"></ion-icon></span>
+                    <span class="title">برداشت</span>
                 </a>
             </li>
             <li>
@@ -75,10 +68,10 @@
               ><ion-icon name="log-out-outline"></ion-icon
                   ></span>
                     <span class="title">
-                        <form action="{{ route('logout') }}" method="POST">
+                        <form class="exit-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="خروج">
+                            <input type="submit" class="exit-input" value="خروج">
                         </form>
                     </span>
                 </a>

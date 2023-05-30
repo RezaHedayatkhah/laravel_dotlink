@@ -18,11 +18,11 @@ body {
     overflow-x: hidden;
 }
 
-form {
+.exit-form {
     all: unset;
 }
 
-input {
+.exit-input {
     all: unset;
 }
 

@@ -64,10 +64,10 @@
                 @foreach ($urls as $url)
 
                     <tr>
-                        <td>{{ Str::limit($url->title, 20) }}</td>
+                        <td><a href="{{ route('urls.edit',[$url]) }}">{{ Str::limit($url->title, 20) }}</a></td>
                         <td>
                             <a href="{{ route('click', [$url->url_code]) }}">
-                                asd
+                                {{ route('click', [$url->url_code])}}
                             </a>
                         </td>
                         <td>{{ $url->views }}</td>
