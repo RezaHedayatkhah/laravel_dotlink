@@ -17,8 +17,8 @@
     <div class="navigation">
         <ul>
             <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                <a href="https://dotlink.ir">
+                    <span class="icon"><ion-icon name="unlink-outline"></ion-icon></span>
                     <span class="title">دات لینک</span>
                 </a>
             </li>
@@ -86,14 +86,22 @@
             </div>
             <!-- search -->
             <div class="search">
-                <label for="">
-                    <input type="text" name="" id="" placeholder="Search here"/>
-                    <ion-icon name="search-outline"></ion-icon>
-                </label>
+                <form action="{{ route('searchUrl') }}" method="get">
+
+                    <label for="">
+                        <input type="text" name="search" required id="" placeholder="جستجوی لینک"/>
+                        <button type="submit">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </button>
+                    </label>
+                </form>
+
             </div>
             <!-- userImg -->
             <div class="user">
-                <img src="user.jpg" alt=""/>
+                <a href="{{ route('show_profile') }}">
+                    <img src="{{ asset('images/man.png') }}" alt=""/>
+                </a>
             </div>
         </div>
         @yield('content')
@@ -120,18 +128,18 @@
     };
 
     // add hovered class in selected list item
-    let list = document.querySelectorAll(".navigation li");
-
-    function activelink() {
-        list.forEach((item) => {
-            item.classList.remove("hovered");
-            this.classList.add("hovered");
-        });
-    }
-
-    list.forEach((item) => {
-        item.addEventListener("mouseover", activelink);
-    });
+    // let list = document.querySelectorAll(".navigation li");
+    //
+    // function activelink() {
+    //     list.forEach((item) => {
+    //         item.classList.remove("hovered");
+    //         this.classList.add("hovered");
+    //     });
+    // }
+    //
+    // list.forEach((item) => {
+    //     item.addEventListener("mouseover", activelink);
+    // });
 </script>
 </body>
 </html>

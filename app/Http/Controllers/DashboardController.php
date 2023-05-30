@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $urls = Url::where('user_id', Auth::id())->latest()->take(10)->get();
-        $urlViews = Url::where(['user_id' => Auth::id(), 'created_at' => Carbon::today()])->sum('views');
+        $urlViews = Url::where('user_id', Auth::id())->sum('views');
         return view('dashboard', compact('urls', 'urlViews'));
     }
 }
