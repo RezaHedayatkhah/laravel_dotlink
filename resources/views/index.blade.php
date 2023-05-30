@@ -74,7 +74,7 @@
                 <span class="badge bg-success rounded-pill ">
                     فعال
                 </span>
-                @else
+                @elseif()
                 <span class="badge bg-warning rounded-pill">
                     غیرفعال
                 </span>

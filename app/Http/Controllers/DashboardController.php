@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $urls = Url::where('user_id', Auth::id())->latest()->take(10)->get();
-
-        return view('dashboard', compact('urls'));
+        $urlViews = Url::where(['user_id' => Auth::id(), 'created_at' => Carbon::today()])->sum('views');
+        return view('dashboard', compact('urls', 'urlViews'));
     }
 }
