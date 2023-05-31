@@ -30,14 +30,27 @@
             @enderror
         </div>
 
+        @if (!auth()->user()->hasVerifiedEmail())
         <div class="input-container">
             <input type="email" name="email" id="email" class="form-input"
                    required value="{{ auth()->user()->email }}"
                    placeholder="ایمیل"/>
+
             @error('email')
             <span>{{ $message }}</span>
             @enderror
         </div>
+        @else
+        <div class="input-container">
+            <input type="email" name="email" id="email" class="form-input"
+                   required value="{{ auth()->user()->email }}"
+                   placeholder="ایمیل" readonly style="color: gray!important"/>
+
+            @error('email')
+            <span>{{ $message }}</span>
+            @enderror
+        </div>
+        @endif
 
         <div class="input-container">
             <input type="text" name="id_code" id="id_code" class="form-input"
@@ -67,4 +80,15 @@
         <!-- Submit button -->
         <button type="submit" class="form-button">ذخیره</button>
     </form>
+    @if (!auth()->user()->hasVerifiedEmail())
+
+    <form action="{{ route('verification.send') }}" method="post" style="text-align: center">
+        @csrf
+        <button type="submit" class="form-button" style="background-color: green">
+            ارسال تأیید ایمیل
+        </button>
+    </form>
+
+    @endif
+
 @endsection

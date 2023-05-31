@@ -33,6 +33,10 @@
               <i class="fas fa-lock"></i>
               <input type="password" name="password" placeholder="رمز عبور" />
             </div>
+            <div class="">
+                <label for="remember">مرا بخاطر بسپار</label>
+                <input type="checkbox" name="remember" value="1">
+            </div>
             <input type="submit" value="ورود" class="btn solid" />
             <p class="social-text">یا از پلتفرم های زیر استفاده کنید</p>
             <div class="social-media">

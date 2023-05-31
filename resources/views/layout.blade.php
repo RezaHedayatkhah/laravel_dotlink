@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a style="cursor: pointer;">
               <span class="icon"
               ><ion-icon name="log-out-outline"></ion-icon
                   ></span>
