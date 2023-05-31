@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/withdraw', [WithdrawReceiptController::class, 'withdraw'])->name('withdraw');
 
     Route::post('/email/verification-notification', function (Request $request) {
-        $request->user()->sendEmailVerificationNotification();
+        auth()->user()->sendEmailVerificationNotification();
 
         return back()->with('status', 'ایمیل با موفقیت برای شما ارسال شد');
     })->middleware('throttle:6,1')->name('verification.send');
