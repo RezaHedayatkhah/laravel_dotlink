@@ -12,6 +12,7 @@ return array(
     'App\\Http\\Controllers\\ClickController' => $baseDir . '/app/Http/Controllers/ClickController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
+    'App\\Http\\Controllers\\SearchController' => $baseDir . '/app/Http/Controllers/SearchController.php',
     'App\\Http\\Controllers\\UrlController' => $baseDir . '/app/Http/Controllers/UrlController.php',
     'App\\Http\\Controllers\\WithdrawReceiptController' => $baseDir . '/app/Http/Controllers/WithdrawReceiptController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

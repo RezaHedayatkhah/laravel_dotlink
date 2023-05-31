@@ -525,6 +525,7 @@ class ComposerStaticInitbb1b8783785748dd1fa7a53804ffeb82
         'App\\Http\\Controllers\\ClickController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClickController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
+        'App\\Http\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchController.php',
         'App\\Http\\Controllers\\UrlController' => __DIR__ . '/../..' . '/app/Http/Controllers/UrlController.php',
         'App\\Http\\Controllers\\WithdrawReceiptController' => __DIR__ . '/../..' . '/app/Http/Controllers/WithdrawReceiptController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
