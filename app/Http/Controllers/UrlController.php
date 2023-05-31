@@ -48,7 +48,7 @@ class UrlController extends Controller
         $url->url_code = bin2hex(random_bytes(6));
         $url->save();
 
-        return back()->with('status', 'لینک با موفقیت ساخته شد');
+        return back()->with('status', '.لینک با موفقیت ساخته شد');
     }
 
     /**
