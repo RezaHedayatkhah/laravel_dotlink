@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-    return redirect('/')->with('status', 'ایمیل با موفقیت ثبت شد');
+    return redirect()->route('show_profile')->with('status', 'ایمیل با موفقیت ثبت شد');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
