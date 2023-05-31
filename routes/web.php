@@ -8,6 +8,7 @@ use App\Http\Controllers\UrlController;
 use App\Http\Controllers\WithdrawReceiptController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/withdraw', [WithdrawReceiptController::class, 'index'])->name('withdrawView');
     Route::post('/withdraw', [WithdrawReceiptController::class, 'withdraw'])->name('withdraw');
 
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('status', 'ایمیل با موفقیت برای شما ارسال شد');
+    })->middleware('throttle:6,1')->name('verification.send');
+
 });
 
 // email verification
@@ -46,11 +53,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     return redirect('/')->with('status', 'ایمیل با موفقیت ثبت شد');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::post('/email/verification-notification', function (Request $request) {
-    Auth::user()->sendEmailVerificationNotification();
 
-    return back()->with('status', 'ایمیل با موفقیت برای شما ارسال شد');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
 Route::get('/{url_code}', [ClickController::class, 'click'])->name('click');
