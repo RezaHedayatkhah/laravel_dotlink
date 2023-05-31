@@ -35,7 +35,7 @@
 
         <div class="card">
             <div>
-                <div class="numbers">{{ Auth::user()->wallet_balance }}</div>
+                <div class="numbers">{{ number_format(Auth::user()->wallet_balance) }}</div>
                 <div class="cardName">درآمد</div>
             </div>
             <div class="iconBx">
@@ -53,38 +53,37 @@
             </div>
             <table>
                 <thead>
-                <tr>
-                    <td>عنوان</td>
-                    <td>لینک</td>
-                    <td>بازدیدها</td>
-                    <td>وضعیت</td>
-                    <td>تغییرات</td>
-                </tr>
+                    <tr>
+                        <td>عنوان</td>
+                        <td>لینک</td>
+                        <td>بازدیدها</td>
+                        <td>وضعیت</td>
+                        <td>تغییرات</td>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach ($urls as $url)
+                    @foreach ($urls as $url)
+                        <tr>
+                            <td><a>{{ Str::limit($url->title, 20) }}</a></td>
+                            <td>
+                                <a href="{{ route('click', [$url->url_code]) }}">
+                                    {{ route('click', [$url->url_code]) }}
+                                </a>
+                            </td>
+                            <td>{{ $url->views }}</td>
 
-                    <tr>
-                        <td><a>{{ Str::limit($url->title, 20) }}</a></td>
-                        <td>
-                            <a href="{{ route('click', [$url->url_code]) }}">
-                                {{ route('click', [$url->url_code])}}
-                            </a>
-                        </td>
-                        <td>{{ $url->views }}</td>
+                            @if ($url->status === 'active')
+                                <td><span class="status active-link">فعال</span></td>
+                            @elseif($url->status === 'inactive')
+                                <td><span class="status inactive-link">غیر فعال</span></td>
+                            @elseif($url->status === 'deleted')
+                                <td><span class="status deleted-link">حذف شده</span></td>
+                            @endif
+                            <td><span class="status inactive-link"><a href="{{ route('urls.edit', [$url]) }}"
+                                        style="color: #fff">ویرایش</a></span></td>
 
-                        @if ($url->status === 'active')
-                            <td><span class="status active-link">فعال</span></td>
-                        @elseif($url->status === 'inactive')
-                            <td><span class="status inactive-link">غیر فعال</span></td>
-                        @elseif($url->status === 'deleted')
-                            <td><span class="status deleted-link">حذف شده</span></td>
-                        @endif
-                        <td><span class="status inactive-link"><a
-                                    href="{{ route('urls.edit',[$url]) }}" style="color: #fff">ویرایش</a></span></td>
-
-                    </tr>
-                @endforeach
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

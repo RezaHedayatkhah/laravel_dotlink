@@ -29,7 +29,7 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::view('/settings', 'settings')->name('settings');
+    Route::view('/help', 'help')->name('help');
     Route::resource('/urls', UrlController::class);
     Route::get('/searchUrl/', [SearchController::class, 'searchUrl'])->name('searchUrl');
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');

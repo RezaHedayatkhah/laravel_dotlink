@@ -38,18 +38,18 @@ class ClickController extends Controller
             if($visitor->chance > 0){
                 if (Carbon::parse($visitor->last_login_at)->diffInHours(Carbon::now()) > 24) {
                     $visitor->last_login_at = Carbon::now()->toDateTimeString();
-                    $visitor->chance = 2;
+                    $visitor->chance = 3;
                     if ($visitor->save()) {
                         $url->increment('views');
                         $visitor->decrement('chance');
-                        $url->user->increment('wallet_balance', 10);
+                        $url->user->increment('wallet_balance', 8);
                         $visitor->save();
                         $url->save();
                     }
                 }elseif (Carbon::parse($visitor->last_login_at)->diffInHours(Carbon::now()) < 24) {
                     $url->increment('views');
                     $visitor->decrement('chance');
-                    $url->user->increment('wallet_balance', 10);
+                    $url->user->increment('wallet_balance', 8);
                     $visitor->save();
                     $url->save();
                 }
@@ -60,8 +60,9 @@ class ClickController extends Controller
             $visitor->last_login_at = Carbon::now()->toDateTimeString();
             if ($visitor->save()) {
                 $url->increment('views');
+                $visitor->chance = 3;
                 $visitor->decrement('chance');
-                $url->user->increment('wallet_balance', 10);
+                $url->user->increment('wallet_balance', 8);
                 $visitor->save();
                 $url->save();
             }

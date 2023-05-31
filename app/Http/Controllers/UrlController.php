@@ -45,7 +45,7 @@ class UrlController extends Controller
         $url->title = $validatedData['title'];
         $url->description = $validatedData['description'];
         $url->long_url = $validatedData['long_url'];
-        $url->url_code = bin2hex(random_bytes(6));
+        $url->url_code = substr(str_pad(dechex(mt_rand()), 8, '0', STR_PAD_LEFT), -8);
         $url->save();
 
         return back()->with('status', '.لینک با موفقیت ساخته شد');
