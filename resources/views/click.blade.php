@@ -3,28 +3,6 @@
 
 <head>
 
-    <link rel="manifest" href="/manifest.json">
-    <!-- Najva Push Notification -->
-    <script type="text/javascript">
-        (function() {
-            var now = new Date();
-            var version = now.getFullYear().toString() + "0" + now.getMonth() + "0" + now.getDate() +
-                "0" + now.getHours();
-            var head = document.getElementsByTagName("head")[0];
-            var link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = "https://van.najva.com/static/cdn/css/local-messaging.css" + "?v=" + version;
-            head.appendChild(link);
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.async = true;
-            script.src =
-                "https://van.najva.com/static/js/scripts/new-website984835-website-47908-2cc05915-2708-4383-a21f-3613f8ee63af.js" +
-                "?v=" + version;
-            head.appendChild(script);
-        })()
-    </script>
-    <!-- END NAJVA PUSH NOTIFICATION -->
 
 
     <meta charset="UTF-8">
@@ -72,16 +50,7 @@
 
     <script type='text/javascript' src='//pl19540384.highrevenuegate.com/f0/8c/54/f08c54d332212195dfadf9e7595b9510.js'>
     </script>
-    <script>
-        (function(zp) {
-            var id = Math.floor(1e7 * Math.random() + 1),
-                url = location.protocol + '//www.zarpop.ir/website/pp/null/6783/' + window.location.hostname + '/?' +
-                id;
-            zp.write('<div id="' + id + '"></div>');
-            zp.write('<script type="text/javascript" src="' + url + '" async></scri' + 'pt>')
-        })(document);
-        var zarpop_userMax = 5;
-    </script>
+    
 
 
 </head>
